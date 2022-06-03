@@ -14,18 +14,21 @@
     
     {% if all_items %}
        <table class="table table-bordered">
+           <th><center>Todo Item</center></th>
+           <th><center>Status</center></th>
+           <th><center>Delete Item</center></th>
            {% for things in all_items %}
               {% if things.completed %}
                  <tr class="table-secondary">
-                   <td class="stricker"><a href="{% url 'edit' things.id %}">{{ things.item }}</a></td>
-                   <td><center><a href="{% url 'complete' things.id %}">Completed</a></center></td>
-                   <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>  
+                   <td class="stricker"><a href="{% url 'edit' things.id %}" class="text-decoration-none">{{ things.item }}</a></td>
+                   <td><center><a href="{% url 'complete' things.id %}" class="text-decoration-none">Completed</a></center></td>
+                   <td><center><a href="{% url 'delete' things.id %}"><button class="btn btn-danger">Delete</button></a></center></td>  
                  </tr>   
               {% else %}
                  <tr>
-                   <td><a href="{% url 'edit' things.id %}">{{ things.item }}</a></td>
-                   <td><center><a href="{% url 'completed' things.id %}">Check complete</a></center></td>
-                   <td><center><a href="{% url 'delete' things.id %}">Delete</a></center></td>  
+                   <td><a href="{% url 'edit' things.id %}" class="text-decoration-none">{{ things.item }}</a></td>
+                   <td><center><a href="{% url 'completed' things.id %}" class="text-decoration-none">Check to complete</a></center></td>
+                   <td><center><a href="{% url 'delete' things.id %}"><button class="btn btn-danger">Delete</button></a></center></td>  
                  </tr>
               {% endif %}     
 
